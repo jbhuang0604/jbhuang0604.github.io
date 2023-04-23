@@ -457,7 +457,26 @@ table.imgtable, table.imgtable td {
 }
 
 
-
+.video-container {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 8px;
+  }
+  
+  .video-text {
+	flex: 1;
+	margin-left: 15px;
+	max-width: 1000px;
+	padding: 70px 0;
+  }
+  
+  @media only screen and (max-width: 768px) {
+	.video-text {
+	  margin-left: 0;
+	}
+  }
+  
 #schedule tr.r2 {
 	background: rgb(220, 220, 220);
 }
