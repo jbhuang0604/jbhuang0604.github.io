@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>UMD CMSC848K: Multimodal Foundation Models</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Custom CSS to override some background colors -->
+  <style>
+    .table>thead>tr>td.info, .table>tbody>tr>td.info, .table>tfoot>tr>td.info, .table>thead>tr>th.info, .table>tbody>tr>th.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td, .table>tbody>tr.info>td, .table>tfoot>tr.info>td, .table>thead>tr.info>th, .table>tbody>tr.info>th, .table>tfoot>tr.info>th {
+      background-color: rgb(185, 209, 246);
+      padding: 4px;
+    }
+    .info {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand brand" href="index.html">CMSC848K Home</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="resource.html">Additional Resources</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<div id="header" style="text-align:center">
+  <a href="http://www.cs.umd.edu/" style="visibility: hidden;">
+    <img src="img/umd.png" class="logo-left">
+  </a>
+  <a href="http://www.cs.umd.edu/">
+    <img src="img/umd.png" class="logo-right">
+  </a>
+  <h1>CMSC848K: Multimodal Foundation Models</h1>
+  <h3>UMD - Fall 2025</h3>
+  <div style="clear:both;"></div>
+</div>
+
+
+<div class="sechighlight">
+  <div class="container sec">
+    <h2>Schedule</h2>
+    <p>
+    <ul>
+      <li><b>Lectures</b> will occur Tuesday/Thursday 11:00AM-12:15PM Eastern Time at <a
+            href="https://maps.app.goo.gl/B1XaoNeTXxw8iAHA6">CSI 3117</a>.</li>
+    </ul>
+    Updated lecture slides will be posted here shortly before each lecture. 
+    For easier reading, lecture category titles are color-coded in <span style="background-color:rgb(185, 209, 246)">blue</span>, 
+    and the midterm exam is highlighted in <span style="background-color:rgb(222, 176, 176)">red</span>.
+    Please note that the schedule is subject to change as the semester progresses.
+    </p>
+  </div>
+</div>
+
+<div class="container sec">
+  <table class="table">
+    <col style="width:5%">
+    <col style="width:25%">
+    <col style="width:35%">
+    <col style="width:5%">
+    <col style="width:30%">
+    <!-- <col style="width:7%"> -->
+
+    <tr class="active">
+      <th>Date</th><th>Topic</th><th>Contents</th><th>Slides</th><th>Videos</th>
+      <!-- <th>Suggested Readings</th> -->
+    </tr>
+
+    <!-- Lecture 1 -->
+    <tr>
+      <td>09/02</td>
+      <td>
+        <b>Lecture 1: Introduction</b>
+      </td>
+      <td>Course logistics <br>
+        Applications of multimodal foundation models <br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <tr class='info'>
+      <td>———</td>
+      <td><b>Architecture</b>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Lecture 2 -->
+    <tr>
+      <td>09/04</td>
+      <td>
+        <b>Lecture 2: Transformer
+      </td>
+      <td>Tokenization <br>
+      Sequence-to-sequence architecture
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Discussion 1 and A1 -->
+    <!-- <tr class='warning'>
+      <td>04/04</td>
+      <td>
+        Python / Numpy Review Session
+        <br>
+      <td>
+        <i class="fa fa-clock-o"></i> 12:30-1:20pm PT
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr> -->
+
+
+    <!-- Lecture 3 -->
+    <tr>
+      <td>09/09</td>
+      <td>
+        <b>Lecture 3: Transformer
+      </td>
+      <td>Attention
+      </td>
+      <td>
+      </td>
+      <td> <a href="https://youtu.be/rcWMRA9E5RI"> But What Are Transformers?</a>
+      </td>
+    </tr>
+
+    <!-- Lecture 4 -->
+    <tr>
+      <td>09/11</td>
+      <td>
+        <b>Lecture 4: Positional embedding
+      </td>
+      <td>Absolute positional encodings <br>
+          Relative positional encoding<br>
+          Rotary positional encoding<br>
+      </td>
+      <td>
+      </td> 
+      <td> <a href="https://www.youtube.com/watch?v=SMBkImDWOyQ">How Rotary Position Encoding Supercharges Modern LLMs</a>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 5 -->
+    <tr>
+      <td>09/16</td>
+      <td>
+        <b>Lecture 5: Architecture variants
+      </td>
+      <td>Optimizer: AdamW, Moun<br>
+          Normalization: LayerNorm, RMSNorm<br>
+          Pre-vs-post norm<br>
+          Activation: GELU, SwiGLU
+      </td>
+      <td>
+      </td>
+      <td> <a href="https://www.youtube.com/watch?v=1_nujVNUsto">AdamW</a><br>
+      </td>
+    </tr>
+
+    <!-- Lecture 6 -->
+    <tr>
+      <td>09/18</td>
+      <td>
+        <b>Lecture 6: Efficient Attention 
+      </td>
+      <td>Sparse and low-rank<br>
+          Linear attention<br>
+          Log-linear attention<br>
+          Multi-head attention, Multi-query attention, Multi-head Latent Attention, TransMLA
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+
+    <!-- Midterm -->
+    <tr class="danger">
+      <td>09/23</td>
+      <td>
+        <b>In-Class Midterm 1</b> <br>
+      </td>
+      <td>
+        <i class="fa fa-clock-o"></i> 11:00am-12:15pm ET
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Lecture 7 -->
+    <tr>
+      <td>09/25</td>
+      <td>
+        <b>Lecture 7: Hardware-aware attention
+      </td>
+      <td>FlashAttention<br>
+          Native Sparse Attention
+      </td>
+      <td>
+      </td> 
+      <td> <a href="https://youtu.be/gBMO1JZav44">How FlashAttention Accelerates Generative AI Revolution</a><br>
+      </td>
+    </tr>
+
+
+    <!-- Lecture 8 -->
+    <tr>
+      <td>09/30</td>
+      <td>
+        <b>Lecture 8: Beyond tokenization
+      </td>
+      <td>SuperBPE<br>
+          Byte Latent Transformer: Patches Scale Better Than Tokens<br>
+          Large concept models
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <tr class='info'>
+      <td>———</td>
+      <td><b>Large Language Models</b>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 9 -->
+    <tr>
+      <td>10/02</td>
+      <td>
+        <b>Lecture 9: Pretraining
+      </td>
+      <td>Scaling laws
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 10 -->
+    <tr>
+      <td>10/07</td>
+      <td>
+        <b>Lecture 10: Prompting &
+            Parameter-Efficient Tuning
+      </td>
+      <td>LoRA, QLoRA, DoRA, SymLoRA<br>
+          Prompt tuning, prefix tuning<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 11 -->
+    <tr>
+      <td>10/09</td>
+      <td>
+        <b>Lecture 11: Post-Trianing
+      </td>
+      <td>Reinforcement learning from human feedback<br>
+          Proximal Policy Optimization<br>
+          Direct Policy Optimization<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <tr>
+      <td>10/14</td>
+      <td>
+        <b>No class
+      </td>
+      <td>Fall break
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    
+    <!-- Lecture 12 -->
+    <tr>
+      <td>10/16</td>
+      <td>
+        <b>Lecture 12: Reasoning
+      </td>
+      <td>Chain of thought<br>
+          Text-time scaling<br>
+          GRPO, GSPO
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Midterm -->
+    <tr class="danger">
+      <td>10/21</td>
+      <td>
+        <b>In-Class Midterm 2</b> <br>
+      </td>
+      <td>
+        <i class="fa fa-clock-o"></i> 11:00am-12:15pm ET
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <tr>
+      <td>10/23</td>
+      <td>
+        <b>No class
+      </td>
+      <td>ICCV 2025
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 13 -->
+    <tr>
+      <td>10/28</td>
+      <td>
+        <b>Lecture 13: Efficient inference
+      </td>
+      <td>Mixture of experts<br>
+          Quantization<br>
+          Speculative decoding<br>
+          Multi-token prediction<br>
+          PagedAttention<br>
+          Continuous batching<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Lecture 14 -->
+    <tr>
+      <td>10/30</td>
+      <td>
+        <b>Lecture 14:  Efficient training
+      </td>
+      <td>Parallelism<br>
+          Mixed precision training, fp16, bf16, fp8
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 15 -->
+    <tr>
+      <td>11/04</td>
+      <td>
+        <b>Lecture 15: Retriveal Augmented Generation
+      </td>
+      <td>RAG
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 16 -->
+    <tr>
+      <td>11/06</td>
+      <td>
+        <b>Lecture 16: Agentic AI
+      </td>
+      <td>WebGPT and NewBit<br>
+          Constitutional AI, DERA, ReAct, Reflexion<br>
+          AgentGPT, Re3<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <tr class='info'>
+      <td>———</td>
+      <td><b>Multimodal Foundation Models	</b>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Lecture 17 -->
+    <tr>
+      <td>11/11</td>
+      <td>
+        <b>Lecture 17: Vision Transformer
+      </td>
+      <td>Vision transformer</b>
+          Swin transformer</b>
+          Transformer++
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 18 -->
+    <tr>
+      <td>11/13</td>
+      <td>
+        <b>Lecture 18: Self-supervised Learning
+            Multimodal pretraining</b><br>
+      </td>
+      <td>SimCLR<br>
+          DINO<br>
+          Masked autoencoder<br>
+          CLIP
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+     <!-- Lecture 19 -->
+    <tr>
+      <td>11/18</td>
+      <td>
+        <b>Lecture 19: Large Multimodal Models
+        </b><br>
+      </td>
+      <td>InternVL1.5<br>
+          GLM-4.5V<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Lecture 20 -->
+    <tr>
+      <td>11/20</td>
+      <td>
+        <b>Lecture 20: Diffusion and Flow matching
+        </b><br>
+      </td>
+      <td>Variational Autoencoder<br>
+          Training, guidance, latent<br>
+          Flow Matching<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Midterm -->
+    <tr class="danger">
+      <td>11/25</td>
+      <td>
+        <b>In-Class Midterm 3</b> <br>
+      </td>
+      <td>
+        <i class="fa fa-clock-o"></i> 11:00am-12:15pm ET
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+     <!-- Lecture 21 -->
+    <tr>
+      <td>11/27</td>
+      <td>
+        <b>Lecture 21: Diffusion LLM
+        </b><br>
+      </td>
+      <td>Diffusion LM<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 22 -->
+    <tr>
+      <td>12/02</td>
+      <td>
+        <b>Lecture 22: Applications - Video
+        </b><br>
+      </td>
+      <td><br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 23 -->
+    <tr>
+      <td>12/04</td>
+      <td>
+        <b>Lecture 23: Applications - 3D
+        </b><br>
+      </td>
+      <td><br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 24 -->
+    <tr>
+      <td>12/09</td>
+      <td>
+        <b>Lecture 24: Applications - Robotics
+        </b><br>
+      </td>
+      <td>Vision-language-action<br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <!-- Lecture 25 -->
+    <tr>
+      <td>12/11</td>
+      <td>
+        <b>Lecture 25: Applications - Protein and Biology
+        </b><br>
+      </td>
+      <td><br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+    <!-- Final Project -->
+    <!-- <tr class='warning'>
+      <td>12/</td>
+      <td>
+        <b>Final Project deadline</b> <br>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr> -->
+
+  </table>
+</div>
+
+<div class="sechighlight">
+  <p style="padding:20px; margin: 0px;"></p>
+</div>
+
+<!-- jQuery and Boostrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+

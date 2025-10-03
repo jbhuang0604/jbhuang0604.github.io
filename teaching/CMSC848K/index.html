@@ -1,75 +1,190 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<title>CMSC848K Multimodal Foundation Models - Fall 2024</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>UMD CMSC848K: Multimodal Foundation Models</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 </head>
-<body>
-<div id="layout-content">
-<div id="toptitle">
-<h1>CMSC848K Multimodal Foundation Models - Fall 2024</h1>
-</div>
-<h2>Course Description</h2>
-<p>Recent advances in machine learning are driven by training scalable models on Internet-scale data (e.g., billions of image-text pairs or trillions of text tokens). 
-This gives rises to foundation models that demonstrate in diverse tasks. 
-In this course, we will study techniques that enable such machine learning systems.
-We will cover foundation models for language, vision, and other modalities.</p>
-<h2>People</h2>
-<h3>Course instructor</h3>
-<p><a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a> (<a href="mailto:jbhuang@umd.edu">jbhuang@umd.edu</a>) <br />
-Office: 4234 IRB building</p>
-<h3>Teaching assistants</h3>
-<p><a href="https://hadizayer.github.io/">Hadi Alzayer</a> (<a href="mailto:hadi@umd.edu">hadi@umd.edu</a>), 
-<a href="https://jamie725.github.io/website/">Yi-Ting Chen</a> (<a href="mailto:ytchen@umd.edu">ytchen@umd.edu</a>),
-<a href="https://yuefeng21.github.io/">Yue Feng</a> (<a href="mailto:yuefeng@umd.edu">yuefeng@umd.edu</a>),
-<a href="https://www.cs.umd.edu/people/gjang">Ji-Ze Jang</a> (<a href="mailto:gjang@umd.edu">gjang@umd.edu</a>),
-<a href="https://yaochih.github.io/">Yao-Chih Lee</a> (<a href="mailto:yclee@umd.edu">yclee@umd.edu</a>)</p>
-<h2>Schedule</h2>
-<p>
-<iframe width=1000 height=1000 src="https://docs.google.com/spreadsheets/d/1l6dYJmj2T6RZSiuC_GTCK28VV_kDI0i19wVO6Hcz3bY/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;range=A1:H36&amp;headers=false"></iframe>
-</p>
-<h2>Coursework</h2>
-<h4>Prerequisites</h4>
-<p>College Calculus, Linear algebra, Probability and Statistics. 
-Prior courses in machine learning, natural language processing, and computer vision are helpful, but not required. </p>
-<h4>Midterm (30%)</h4>
-<p>We have two in-class midterm exams through out the semester. 
-Detailed information will be made available.</p>
-<h4>Final project (30%)</h4>
-<p>Students will work in a group of 2-3 students to work on projects on the topic of multimodal foundation models.</p>
-<h4>Paper review (40%)</h4>
-<p>We will have a list of recommended paper readings starting from the third lecture.
-For each lecture, students will turn in an one-page paper review. 
-The review should have two sections: 1) paper summary and 2) your critiques (strenth/weakness of the paper, interesting insights or questions that worth discussions).
-The paper review will be due prior to the class (11:00 AM on Tues or Thurs). 
-No late submissions are allowed. 
-The students need to submit at least 20 paper reviews to receive full scores (40%)</p>
-<h2>Course logistics</h2>
-<h4>Lectures</h4>
-<p>Tuesday/Thursday 11:00 AM - 12:15 PM at IRB 0318</p>
-<h4>Lecture Videos</h4>
-<p>No lecture recordings. 
-The instructor will post edited/summarized videos on the selected topics for student reviews. 
-These will be posted shortly after the lectures.</p>
-<h4>Piazza</h4>
-<p>We will be using <a href="https://piazza.com/class/m0ax15h2w1m70k/">Piazza</a> as the primary platform for communication. 
-Please do not send individual emails to TAs or the instructor as they are difficult to track.</p>
-<h2>Additional Resources</h2>
-<h3>Courses at UMD</h3>
-<p>Several courses offered at UMD also overlap with this course. </p>
-<ul>
-<li><p><a href="https://www.cs.umd.edu/class/spring2024/cmsc720/info.html">CMSC720: Foundations of Deep Learning</a></p>
-</li>
-<li><p><a href="https://www.cs.umd.edu/~djacobs/CMSC828Scale/CMSC828_Fall24.htm">CMSC828P: AI/ML at Scale</a> </p>
-</li>
-</ul>
-<h3>External</h3>
-<p>
-<p><a href="https://www.umd.edu/web-accessibility" title="UMD Web Accessibility">Web Accessibility</a></p>
-</p>
-</div>
+
+<body onload="">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand brand" href="index.html">CMSC848K Home</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="resource.html">Additional Resources</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div id="header" style="text-align:center">
+    <a href="http://www.cs.umd.edu/" style="visibility: hidden;">
+      <img src="img/umd.png" class="logo-left">
+    </a>
+    <a href="http://www.cs.umd.edu/">
+      <img src="img/umd.png" class="logo-right">
+    </a>
+    <h1>CMSC848K: Multimodal Foundation Models</h1>
+    <h3>UMD - Fall 2025</h3>
+    <div style="clear:both;"></div>
+  </div>
+
+  <div class="sechighlight">
+    <div class="container sec">
+      <h2>Course Description</h2>
+
+      <div id="coursedesc">
+        Recent advances in machine learning are driven by training scalable models on Internet-scale data 
+        (e.g., billions of image-text pairs or trillions of text tokens). 
+        This gives rises to foundation models that demonstrate in diverse tasks. 
+        In this course, we will study techniques that enable such machine learning systems. 
+        We will cover foundation models for language, vision, and other modalities.
+      </div>
+      <br>
+      <div class='text-center'>
+        <button class="btn" data-toggle="collapse" data-target="#demo">Previous Offerings</button>
+        <div id="demo" class="collapse">
+          <a href='https://jbhuang0604.github.io/teaching/CMSC848K/'>[Fall 2024]</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container sec" id="people">
+    <div class="col-md-4">
+      <h3>Instructor</h3>
+      <div class="instructor" style="margin-bottom: 25px; margin-top: 15px;">
+        <a href="https://jbhuang0604.github.io" target="_blank">
+          <div class="instructorphoto">
+            <img class="img-hover" src="img/jia-bin.jpeg">
+          </div>
+          <div>Jia-Bin Huang</div>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="col-md-8">
+      <h3>Teaching Assistants</h3>
+
+      <div class="instructor" style="margin-bottom: 25px; margin-top: 15px;">
+        <a href="https://jamie725.github.io/website/" target="_blank">
+          <div class="instructorphoto"><img src="img/yi-ting.jpeg"></div>
+          <div>Yi-Ting Chen</div>
+        </a>
+      </div>
+      <div class="instructor">
+        <a href="https://yaochih.github.io/" target="_blank">
+          <div class="instructorphoto"><img src="img/yao-chih.jpeg"></div>
+          <div>Yao-Chih Lee</div>
+        </a>
+      </div>
+      <div class="instructor">
+        <a href="https://tinghliao.github.io/" target="_blank">
+          <div class="instructorphoto"><img src="img/ting-hsuan.jpeg"></div>
+          <div>Ting-Hsuan Liao</div>
+        </a>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <div class="sechighlight">
+    <div class="container sec" id="logistics">
+      <h2>Course Logistics</h2>
+      <br>
+      <ul>
+        <li><b>Lectures:</b> Tuesday/Thursday 11:00AM-12:15PM Eastern Time at <a
+            href="https://maps.app.goo.gl/B1XaoNeTXxw8iAHA6">CSI 3117</a>.</li>
+        <li><b>Lecture Videos:</b> No lecture recordings. The instructor will post edited/summarized videos on the selected topics for student reviews. 
+          These will be posted shortly after the lectures.</li>
+        <li><b>Piazza:</b> We will be using <a href="https://piazza.com/umd/fall2025/cmsc848k">Piazza</a> as the primary platform for communication. </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container sec" id="coursework" style="margin-top:-20px">
+    <br>
+    <h2>Coursework</h2>
+
+    <h3>Prerequisites</h3>
+    <p>
+      College Calculus, Linear algebra, Probability and Statistics. 
+      Prior courses in machine learning, natural language processing, and computer vision are helpful, but not required.
+    </p>
+
+    <h3>Midterm (30%)</h3>
+    <p>We have three in-class midterm exams through out the semester. Detailed information will be made available.</p>
+
+    <h3>Final Project (30%)</h3>
+    <p>Students will work in a group of 2-3 students to work on projects on the topic of multimodal foundation models.</p>
+
+    <h3>Paper Review (40%)</h3>
+    <p>We will have a list of recommended paper readings starting from the third lecture. 
+      For each lecture, students will turn in an one-page paper review. 
+      The review should have two sections: 
+      <ul>
+      <li> paper summary </li>
+      <li> your critiques (strenth/weakness of the paper, interesting insights or questions that worth discussions) </li>  
+      </ul> The paper review will be due prior to the class (11:00 AM on Tues or Thurs). No late submissions are allowed. 
+      The students need to submit at least 20 paper reviews to receive full scores (40%).</p>
+
+    <h3>Regrade Requests</h3>
+    <p>If you believe that the course staff made an objective error in grading, you may submit a regrade request on
+      Gradescope within <b>7 days</b> of the grade release. Your request should briefly summarize why the original
+      grading was incorrect. </p>
+    <h3 id="late-policy">Late Policy</h3>
+    <ul>
+      <li>No late submissions are allowed.</li>
+      <li>Students need to submit at least 20 paper reviews to receive full scores of Paper Review (40%).</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="sechighlight">
+    <p style="padding:20px; margin: 0px;"></p>
+  </div>
+
+  <!-- <div class="sechighlight">
+    <div class="container sec">
+      <h3>FAQ</h3>
+      <div class="qqa">
+        <div class="qq">Academic accommodations:</div>
+        <div class="qa"></div>
+      </div>
+      
+    </div>
+  </div> -->
+
+
+  <!-- jQuery and Boostrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
+
