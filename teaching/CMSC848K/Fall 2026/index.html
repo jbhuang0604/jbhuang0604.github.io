@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CMSC848K — Multimodal Foundation Models, Fall 2026 at the University of Maryland.">
+  <title>CMSC848K · Multimodal Foundation Models · Fall 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Plus+Jakarta+Sans:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#000000; --muted:#454545; --paper:#ffffff; --surface:#ffffff; --module-bg:#e6e6e6; --line:#d0d0d0; --mint:#ffd200; --blue:#e21833; --coral:#e21833; --shadow:0 18px 48px rgba(0,0,0,.08); color-scheme:light; }
+    :root[data-theme="dark"] { --ink:#ffffff; --muted:#d0d0d0; --paper:#171717; --surface:#222222; --module-bg:#303030; --line:#454545; --mint:#ffd200; --blue:#ff6b7d; --coral:#ff6b7d; --shadow:0 18px 48px rgba(0,0,0,.22); color-scheme:dark; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:"Plus Jakarta Sans",sans-serif; font-size:18px; line-height:1.68; letter-spacing:-.014em; transition:background .25s,color .25s; }
+    a { color:inherit; text-decoration-thickness:1px; text-underline-offset:3px; }
+    a:hover { color:var(--blue); }
+    .shell { max-width:1240px; margin:auto; padding:0 32px; }
+    .nav { height:74px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .wordmark { display:flex; align-items:center; gap:10px; font:500 13px "DM Mono",monospace; letter-spacing:.02em; text-decoration:none; }
+    .wordmark img { width:30px; height:30px; object-fit:contain; }
+    .wordmark b { color:var(--coral); font-weight:500; }
+    .nav-links { display:flex; align-items:center; gap:22px; font-size:15px; }
+    .nav-links a { text-decoration:none; }
+    .theme { width:36px; height:36px; border:1px solid var(--line); border-radius:50%; background:var(--surface); color:var(--ink); display:grid; place-items:center; cursor:pointer; transition:transform .18s,background .25s; }
+    .theme:hover { transform:rotate(16deg); }
+    .theme svg { width:17px; height:17px; }
+    .hero { min-height:500px; padding:92px 0 76px; display:flex; align-items:center; }
+    .eyebrow { font:500 12px "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:flex; align-items:center; gap:8px; }
+    .eyebrow::before { content:""; width:24px; height:1px; background:var(--coral); }
+    h1 { margin:19px 0 27px; max-width:850px; font:700 clamp(64px,8.2vw,122px)/.84 "Newsreader",Georgia,serif; letter-spacing:-.065em; }
+    h1 em { color:var(--coral); font-style:italic; font-weight:600; }
+    .intro { max-width:610px; color:var(--muted); font-size:20px; line-height:1.62; }
+    .quick-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:29px; }
+    .chip { padding:9px 13px; border:1px solid var(--line); border-radius:999px; text-decoration:none; font:500 13px "DM Mono",monospace; transition:background .18s, transform .18s; }
+    .chip:hover { color:var(--ink); background:var(--mint); border-color:var(--mint); transform:translateY(-2px); }
+    .facts { border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:grid; grid-template-columns:repeat(3,1fr); }
+    .fact { padding:23px 24px; border-right:1px solid var(--line); }
+    .fact:last-child { border:0; }
+    .fact small,.label { display:block; color:var(--muted); text-transform:uppercase; font:500 11px "DM Mono",monospace; letter-spacing:.08em; }
+    .fact strong { display:block; margin-top:7px; font-size:17px; font-weight:600; }
+    section { padding:104px 0; }
+    .section-head { display:grid; grid-template-columns:1fr 2fr; gap:30px; margin-bottom:41px; }
+    h2 { margin:0; font:700 58px/.9 "Newsreader",Georgia,serif; letter-spacing:-.055em; }
+    .section-head p { margin:0; max-width:620px; color:var(--muted); font-size:19px; line-height:1.66; }
+    .roadmap { background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .modules { display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line); border-bottom:0; }
+    .module { min-height:202px; padding:25px 27px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); position:relative; transition:background .2s; }
+    .module:nth-child(2n) { border-right:0; }
+    .module:hover { background:color-mix(in srgb,var(--mint) 16%,var(--surface)); }
+    .module-num { color:var(--coral); font:500 12px "DM Mono",monospace; }
+    .module h3 { margin:34px 0 9px; font:700 24px/1.12 "Sora",sans-serif; letter-spacing:-.045em; }
+    .module p { margin:0; color:var(--muted); font-size:16px; line-height:1.62; max-width:440px; }
+    .key-topics { margin:9px 0 0; padding-left:18px; color:var(--muted); columns:2; column-gap:24px; font-size:14px; line-height:1.42; text-transform:capitalize; }
+    .key-topics li { break-inside:avoid; margin-bottom:3px; }
+    .schedule .key-topics { columns:2; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-top:2px solid var(--ink); }
+    .schedule { width:100%; min-width:860px; border-collapse:collapse; text-align:left; }
+    .schedule th { padding:15px 16px; background:var(--surface); border-bottom:1px solid var(--line); color:var(--muted); font:500 12px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .schedule td { padding:18px 16px; vertical-align:top; border-bottom:1px solid var(--line); font-size:16px; line-height:1.52; }
+    .schedule tbody tr { transition:background .18s; }
+    .schedule tbody tr:hover { background:color-mix(in srgb,var(--mint) 13%,transparent); }
+    .schedule tbody tr:last-child td { border-bottom:0; }
+    .schedule .week { color:var(--coral); font:500 12px "DM Mono",monospace; white-space:nowrap; }
+    .schedule .date { color:var(--muted); font:500 13px "DM Mono",monospace; white-space:nowrap; }
+    .schedule strong { display:block; font:700 17px/1.28 "Sora",sans-serif; letter-spacing:-.035em; }
+    .schedule .material { color:var(--blue); font:500 13px "DM Mono",monospace; white-space:nowrap; }
+    .video-embed { display:block; width:210px; height:118px; margin-top:10px; border:0; background:#0b0b0b; }
+    .video-cell { min-width:226px; }
+    .video-cell .video-embed { margin-top:0; }
+    .video-cell.is-empty { color:var(--muted); font:500 12px "DM Mono",monospace; }
+    .schedule tr.midterm { background:color-mix(in srgb,var(--coral) 10%,transparent); }
+    .schedule tr.break { opacity:.75; }
+    .schedule tr.module-divider:hover { background:transparent; }
+    .schedule tr.module-divider td { padding:12px 16px; border-top:2px solid var(--ink); border-bottom:1px solid var(--line); background:var(--module-bg); color:var(--ink); font:600 13px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .schedule tr.module-divider span { color:var(--coral); margin-right:10px; }
+    .assessment { background:var(--mint); color:#132228; }
+    .assessment .section-head p { color:#315047; }
+    .assessment-panel { display:grid; grid-template-columns:minmax(280px,.9fr) 1.1fr; gap:38px; align-items:center; padding:30px; background:#b8ffd9; border:1px solid #5aa88b; }
+    .grade-visual { display:grid; gap:24px; justify-items:center; }
+    .grade-chart { position:relative; width:min(100%,300px); aspect-ratio:1; }
+    .grade-chart svg { display:block; width:100%; height:100%; transform:rotate(-90deg); }
+    .grade-ring-bg,.grade-segment { fill:none; stroke-width:28; }
+    .grade-ring-bg { stroke:#8ed4b1; }
+    .grade-segment { cursor:pointer; outline:none; transition:stroke-width .18s,opacity .18s,filter .18s; }
+    .grade-segment.is-active { stroke-width:35; filter:drop-shadow(0 3px 4px rgba(19,34,40,.18)); }
+    .grade-center { position:absolute; inset:0; display:grid; place-content:center; text-align:center; pointer-events:none; }
+    .grade-center strong { font:700 48px/.9 "Newsreader",Georgia,serif; letter-spacing:-.06em; }
+    .grade-center span { margin-top:8px; color:#315047; font:500 11px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .grade-legend { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 16px; width:100%; }
+    .grade-key { display:flex; align-items:center; gap:8px; padding:7px 0; border:0; background:transparent; color:#132228; text-align:left; font:500 12px "DM Mono",monospace; cursor:pointer; }
+    .grade-key:hover,.grade-key:focus-visible { color:#e21833; outline:none; }
+    .grade-key-dot { width:10px; height:10px; flex:0 0 10px; border-radius:50%; background:var(--grade-color); }
+    .grade-key strong { margin-left:auto; font-weight:700; }
+    .grade-detail { min-height:220px; padding:24px 0 24px 34px; border-left:2px solid #5aa88b; }
+    .grade-detail .label { color:#315047; }
+    .grade-detail h3 { margin:28px 0 10px; font:700 31px/1.05 "Sora",sans-serif; letter-spacing:-.05em; }
+    .grade-detail p { max-width:470px; margin:0; color:#315047; font-size:17px; line-height:1.65; }
+    .people { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; align-items:start; }
+    .person { border-top:2px solid var(--ink); padding-top:16px; }
+    .person img { width:80px; height:80px; object-fit:cover; border-radius:50%; float:left; margin:0 18px 8px 0; filter:saturate(.82); }
+    .person h3 { margin:3px 0 2px; font:700 24px/1.18 "Sora",sans-serif; letter-spacing:-.045em; }
+    .person p { margin:0; color:var(--muted); font-size:16px; }
+    .footer { padding:30px 0 45px; display:flex; justify-content:space-between; gap:24px; color:var(--muted); border-top:1px solid var(--line); font:13px "DM Mono",monospace; }
+    .reveal { opacity:0; transform:translateY(12px); transition:opacity .55s ease,transform .55s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    @media (max-width:1000px) { .people { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:760px) { .shell { padding:0 20px; } .nav-links a { display:none; } .hero { padding:52px 0; min-height:auto; } h1 { font-size:72px; } .intro { font-size:18px; } .facts,.modules { grid-template-columns:1fr; } .fact,.module { border-right:0; } .key-topics { columns:1; } .section-head,.people,.assessment-panel { grid-template-columns:1fr; gap:17px; } .grade-detail { min-height:0; padding:24px 0 0; border-top:2px solid #5aa88b; border-left:0; } section { padding:72px 0; } h2 { font-size:48px; } .table-wrap { margin-right:-20px; } .schedule th,.schedule td { padding-left:12px; padding-right:12px; } .footer { display:block; } .footer span { display:block; margin-bottom:8px; } }
+    @media (prefers-reduced-motion:reduce) { *,*:before,*:after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav" aria-label="Course navigation">
+      <a class="wordmark" href="#top"><img src="https://jbhuang0604.github.io/teaching/CMSC848K/img/umd.png" alt="University of Maryland"><span>UMD / <b>CMSC848K</b></span></a>
+      <div class="nav-links"><a href="#schedule">Schedule</a><a href="#coursework">Coursework</a><a href="#people">People</a><button class="theme" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2a8.8 8.8 0 1 0 8.8 8.8A7.1 7.1 0 0 1 12 3.2Zm0 15.7A6.9 6.9 0 0 1 9.3 5.7a8.9 8.9 0 0 0 9 9 6.9 6.9 0 0 1-6.3 4.2Z"/></svg></button></div>
+    </nav>
+
+    <main id="top">
+      <div class="hero">
+        <div class="reveal">
+          <div class="eyebrow">University of Maryland · Fall 2026</div>
+          <h1>Multimodal<br><em>foundation</em><br>models.</h1>
+          <p class="intro">A research-driven course on the models that connect language, vision, audio, and action—from the transformer’s first principles to capable multimodal systems.</p>
+          <div class="quick-links"><a class="chip" href="#schedule">Explore the schedule ↓</a><a class="chip" href="https://app.testudo.umd.edu/soc/202608/CMSC/CMSC848K" target="_blank" rel="noreferrer">Official listing ↗</a><a class="chip" href="https://piazza.com/class/mti5qnf9lyuoi/" target="_blank" rel="noreferrer">Piazza ↗</a></div>
+        </div>
+      </div>
+      <div class="facts reveal" aria-label="Course logistics"><div class="fact"><small>When</small><strong>Tue / Thu · 12:30–1:45 PM</strong></div><div class="fact"><small>Where</small><strong>CSI 3117</strong></div><div class="fact"><small>Instructor</small><strong>Jia-Bin Huang</strong></div></div>
+    </main>
+  </div>
+
+  <section id="schedule"><div class="shell">
+    <div class="section-head reveal"><h2>Lecture<br>schedule.</h2></div>
+    <div class="table-wrap reveal"><table class="schedule"><thead><tr><th scope="col">#</th><th scope="col">Date</th><th scope="col">Lecture</th><th scope="col">Slides</th><th scope="col">Supp video</th></tr></thead><tbody>
+      <tr class="module-divider"><td colspan="5"><span>Module 01</span> Transformer foundations</td></tr>
+      <tr><td class="week">L01</td><td class="date">Tue · Sep 1</td><td><strong>Introduction</strong><ul class="key-topics"><li>Course logistics</li><li>Multimodal foundation model applications</li></ul></td><td><a class="material" href="https://www.dropbox.com/scl/fi/qmjdll5kuxjnmd5hr235u/Lec_01_Introduction.pptx?rlkey=gjzgyuoex06s6uxlpq5hnmk0m&amp;dl=0" target="_blank" rel="noreferrer">Slides ↗</a></td></tr>
+      <tr><td class="week">L02</td><td class="date">Thu · Sep 3</td><td><strong>Transformer</strong><ul class="key-topics"><li>Tokenization</li><li>Sequence-to-sequence architecture</li></ul></td><td><a class="material" href="https://www.dropbox.com/scl/fi/35f1u54dbbv4so1bj32g5/Lec_02_Transformer.pptx?rlkey=lvc725nxf0bmw9bt7z3y26ma0&amp;dl=0" target="_blank" rel="noreferrer">Slides ↗</a><iframe class="video-embed" loading="lazy" title="But What Are Transformers?" src="https://www.youtube-nocookie.com/embed/rcWMRA9E5RI" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L03</td><td class="date">Tue · Sep 8</td><td><strong>Position embedding</strong><ul class="key-topics"><li>Absolute position</li><li>Relative position</li><li>Rotary position embeddings</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How Rotary Position Embedding Supercharges Modern LLMs" src="https://www.youtube-nocookie.com/embed/SMBkImDWOyQ" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L04</td><td class="date">Thu · Sep 10</td><td><strong>Attention design</strong><ul class="key-topics"><li>Key-value cache</li><li>Multi-head attention</li><li>Multi-query attention</li><li>Grouped-query attention</li><li>Multi-head latent attention</li><li>DeepSeek Sparse attention (DSA)</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How Attention Got So Efficient" src="https://www.youtube-nocookie.com/embed/Y-o545eYjXM" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L05</td><td class="date">Tue · Sep 15</td><td><strong>Flash Attention</strong><ul class="key-topics"><li>GPUs</li><li>Tiling algorithm</li><li>Online softmax</li><li>FlashAttention</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How FlashAttention Accelerates Generative AI Revolution" src="https://www.youtube-nocookie.com/embed/gBMO1JZav44" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L06</td><td class="date">Thu · Sep 17</td><td><strong>Linear attention</strong><ul class="key-topics"><li>Linear attention</li><li>Chunkwise parallel training</li><li>Test-time regression perspective</li><li>Delta update rule</li></ul></td><td><iframe class="video-embed" loading="lazy" title="Linear Attention" src="https://www.youtube-nocookie.com/embed/pUCWwGR5WmQ" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L07</td><td class="date">Tue · Sep 22</td><td><strong>Mixture of Experts</strong><ul class="key-topics"><li>Feedforward layers</li><li>Activations</li><li>Load balancing</li><li>Router z-loss</li></ul></td><td><iframe class="video-embed" loading="lazy" title="Mixture of Experts" src="https://www.youtube-nocookie.com/embed/0QQlYR1r6pQ" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L08</td><td class="date">Thu · Sep 24</td><td><strong>Residual connections</strong><ul class="key-topics"><li>Residuals</li><li>Hyper connections</li><li>Attention residuals</li><li>Gated residual</li></ul></td><td><iframe class="video-embed" loading="lazy" title="Residual Connections" src="https://www.youtube-nocookie.com/embed/LSHTkbnmzy4" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L09</td><td class="date">Tue · Sep 29</td><td><strong>Embedding scaling</strong><ul class="key-topics"><li>N-gram</li><li>Emgram</li></ul></td><td>—</td></tr>
+      <tr class="midterm"><td class="week">M1</td><td class="date">Thu · Oct 1</td><td><strong>Midterm 1 — in-class exam</strong></td><td>—</td></tr>
+      <tr class="module-divider"><td colspan="5"><span>Module 02</span> Large Language Models</td></tr>
+      <tr><td class="week">L11</td><td class="date">Tue · Oct 6</td><td><strong>Pretraining and scaling laws</strong><ul class="key-topics"><li>Next-token prediction</li><li>Data, model, and compute scaling</li><li>Chinchilla-optimal training</li></ul></td><td>—</td></tr>
+      <tr><td class="week">L12</td><td class="date">Thu · Oct 8</td><td><strong>Prompting and PEFT</strong><ul class="key-topics"><li>Low-Rank Adaptation</li><li>LoRA+</li><li>Quantized Low-Rank Adaptation</li><li>Vector-based Random Matrix Adaptation</li><li>Weight-Decomposed Low-Rank Adaptation</li></ul></td><td><iframe class="video-embed" loading="lazy" title="The Tiny Idea That Lets Anyone Fine-Tune AI" src="https://www.youtube-nocookie.com/embed/U80tjcThl9Q" allowfullscreen></iframe></td></tr>
+      <tr class="break"><td class="week">L13</td><td class="date">Tue · Oct 13</td><td><strong>Fall Break</strong></td><td>—</td></tr>
+      <tr><td class="week">L14</td><td class="date">Thu · Oct 15</td><td><strong>Post-training</strong><ul class="key-topics"><li>Reinforcement Learning from Human Feedback</li><li>Proximal Policy Optimization</li><li>Direct Preference Optimization</li></ul></td><td>—</td></tr>
+      <tr><td class="week">L15</td><td class="date">Tue · Oct 20</td><td><strong>Reasoning</strong><ul class="key-topics"><li>Chain-of-thought</li><li>Test-time scaling</li><li>GRPO and GSPO</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How LLMs Learn to Reason with GRPO" src="https://www.youtube-nocookie.com/embed/mg-iU-WxiNs" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L16</td><td class="date">Thu · Oct 22</td><td><strong>Efficient inference</strong><ul class="key-topics"><li>Quantization</li><li>Speculative decoding</li><li>PagedAttention</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How LLMs Get Faster Without Changing Their Answers" src="https://www.youtube-nocookie.com/embed/l8gWQlrVOKQ" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L17</td><td class="date">Tue · Oct 27</td><td><strong>Efficient training</strong><ul class="key-topics"><li>Parallelism</li><li>Mixed precision</li><li>fp16, bf16, fp8</li></ul></td><td>—</td></tr>
+      <tr class="module-divider"><td colspan="5"><span>Module 03</span> Multimodal models</td></tr>
+      <tr><td class="week">L18</td><td class="date">Thu · Oct 29</td><td><strong>Large multimodal models</strong><ul class="key-topics"><li>Example state-of-the-art models</li></ul></td><td>—</td></tr>
+      <tr><td class="week">L19</td><td class="date">Tue · Nov 3</td><td><strong>Self-supervised representation learning</strong><ul class="key-topics"><li>SimCLR</li><li>DINO</li><li>Masked autoencoders</li><li>CLIP</li><li>JEPA</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How AI Taught Itself to See with DINOv3" src="https://www.youtube-nocookie.com/embed/oGTasd3cliM" allowfullscreen></iframe></td></tr>
+      <tr class="midterm"><td class="week">M2</td><td class="date">Thu · Nov 5</td><td><strong>Midterm 2 — in-class exam</strong></td><td>—</td></tr>
+      <tr><td class="week">L21</td><td class="date">Tue · Nov 10</td><td><strong>Diffusion</strong><ul class="key-topics"><li>Variational autoencoders</li><li>Diffusion training</li><li>Guidance</li><li>Latent diffusion</li></ul></td><td><iframe class="video-embed" loading="lazy" title="Diffusion" src="https://www.youtube-nocookie.com/embed/i2qSxMVeVLI" allowfullscreen></iframe></td></tr>
+      <tr><td class="week">L22</td><td class="date">Tue · Nov 17</td><td><strong>Flow matching</strong><ul class="key-topics"><li>Flow matching foundations</li><li>MeanFlow</li><li>Efficient sampling</li></ul></td><td><iframe class="video-embed" loading="lazy" title="How I Understand Flow Matching" src="https://www.youtube-nocookie.com/embed/DDq_pIfHqLs" allowfullscreen></iframe></td></tr>
+      <tr class="module-divider"><td colspan="5"><span>Module 04</span> Systems &amp; applications</td></tr>
+      <tr><td class="week">L23</td><td class="date">Thu · Nov 19</td><td><strong>Applications · robot learning</strong><ul class="key-topics"><li>Vision-language-action</li><li>Policy learning</li><li>World models</li></ul></td><td>—</td></tr>
+      <tr><td class="week">L24</td><td class="date">Tue · Nov 24</td><td><strong>Agentic AI 1 — reasoning &amp; tool use</strong><ul class="key-topics"><li>Test-time scaling</li><li>Tool calling and function APIs</li><li>Web search, code execution, and computer use</li></ul></td><td>—</td></tr>
+      <tr class="break"><td class="week">—</td><td class="date">Nov 25–29</td><td><strong>Thanksgiving recess</strong></td><td>—</td></tr>
+      <tr><td class="week">L25</td><td class="date">Tue · Dec 1</td><td><strong>Agentic AI 2 — agent harnesses</strong><ul class="key-topics"><li>Planning and orchestration</li><li>Memory and state</li><li>Tracing, evaluations, and guardrails</li></ul></td><td>—</td></tr>
+      <tr class="midterm"><td class="week">M3</td><td class="date">Thu · Dec 3</td><td><strong>Midterm 3 — in-class exam</strong></td><td>—</td></tr>
+      <tr><td class="week">L26</td><td class="date">Tue · Dec 8</td><td><strong>Applications · video &amp; audio</strong><ul class="key-topics"><li>Multimodal models for video</li><li>Multimodal models for audio</li></ul></td><td>—</td></tr>
+      <tr><td class="week">L27</td><td class="date">Thu · Dec 10</td><td><strong>Applications · 3D</strong><ul class="key-topics"><li>Multimodal models for 3D understanding</li><li>3D creation</li></ul></td><td>—</td></tr>
+    </tbody></table></div>
+  </div></section>
+
+  <section class="assessment" id="coursework"><div class="shell">
+    <div class="section-head reveal"><h2>Learn by<br>looking closely.</h2><p>Coursework emphasizes clear technical thinking, regular engagement with research papers, and an original project in multimodal foundation models.</p></div>
+    <div class="assessment-panel reveal">
+      <div class="grade-visual"><div class="grade-chart"><svg viewBox="0 0 200 200" role="img" aria-label="Course grade breakdown"><circle class="grade-ring-bg" cx="100" cy="100" r="68" pathLength="100"></circle><g id="grade-segments"></g></svg><div class="grade-center"><strong>100%</strong><span>coursework</span></div></div><div class="grade-legend" id="grade-legend"></div></div>
+      <aside class="grade-detail" id="grade-detail" aria-live="polite"><span class="label">45% of final grade</span><h3>Midterms</h3><p>Three midterms worth 15% each, scheduled for Oct 1, Nov 5, and Dec 3, 2026.</p></aside>
+    </div>
+  </div></section>
+
+  <section id="people"><div class="shell"><div class="section-head reveal"><h2>People.</h2><p>Questions about the course are best directed through the course communication channel once it is announced. The instructor’s office is IRB 4234.</p></div>
+    <div class="people reveal"><article class="person"><img src="https://jbhuang0604.github.io/images/jbhuang.jpg" alt="Jia-Bin Huang"><h3><a href="https://jbhuang0604.github.io/" target="_blank" rel="noreferrer">Jia-Bin Huang ↗</a></h3><p>Instructor<br><a href="mailto:jbhuang@umd.edu">jbhuang@umd.edu</a></p></article><article class="person"><img src="https://tinghliao.github.io/files/Ting_Hsuan_Liao.JPG" alt="Ting-Hsuan Liao"><h3><a href="https://tinghliao.github.io/" target="_blank" rel="noreferrer">Ting-Hsuan Liao ↗</a></h3><p>Teaching Assistant</p></article><article class="person"><img src="https://jbhuang0604.github.io/images/people/Yi-Ting_Chen.jpeg" alt="Yi-Ting Chen"><h3><a href="https://jamie725.github.io/website/" target="_blank" rel="noreferrer">Yi-Ting Chen ↗</a></h3><p>Teaching Assistant</p></article><article class="person"><img src="https://jbhuang0604.github.io/images/people/Yue_Feng.jpg" alt="Yue Feng"><h3><a href="https://www.linkedin.com/in/yue-feng-72903213b/" target="_blank" rel="noreferrer">Yue Feng ↗</a></h3><p>Teaching Assistant</p></article></div>
+  </div></section>
+
+  <div class="shell"><footer class="footer"><span>CMSC848K · Multimodal Foundation Models</span><span>University of Maryland · Fall 2026</span><a href="https://www.umd.edu/web-accessibility" target="_blank" rel="noreferrer">Web accessibility ↗</a></footer></div>
+  <script>
+    const root = document.documentElement, button = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('cmsc848k-theme');
+    if (stored) root.dataset.theme = stored;
+    button.addEventListener('click', () => { const next = root.dataset.theme === 'dark' ? 'light' : 'dark'; root.dataset.theme = next; localStorage.setItem('cmsc848k-theme', next); button.setAttribute('aria-label', `Switch to ${next === 'dark' ? 'light' : 'dark'} theme`); });
+    document.querySelectorAll('.schedule tbody tr:not(.module-divider)').forEach(row => {
+      const materialCell = row.children[3], videoCell = document.createElement('td');
+      videoCell.className = 'video-cell';
+      const embed = materialCell.querySelector('.video-embed');
+      if (embed) videoCell.append(embed); else { videoCell.textContent = '—'; videoCell.classList.add('is-empty'); }
+      row.append(videoCell);
+    });
+    const gradeData = [
+      {name:'Midterms', weight:45, color:'#e21833', description:'Three midterms worth 15% each, scheduled for Oct 1, Nov 5, and Dec 3, 2026.'},
+      {name:'Paper reviews', weight:20, color:'#2c7a68', description:'Short critical reviews of selected readings. Submit at least 20 for full credit; no late reviews.'},
+      {name:'Final project', weight:20, color:'#2468a8', description:'Work in a team of 2–3 on an original project involving multimodal foundation models.'},
+      {name:'Quiz', weight:15, color:'#d38b00', description:'Short checks of understanding that keep the core ideas in active rotation throughout the semester.'}
+    ];
+    const segmentRoot = document.getElementById('grade-segments'), legendRoot = document.getElementById('grade-legend'), detail = document.getElementById('grade-detail');
+    let offset = 0;
+    const activateGrade = index => { const item = gradeData[index]; detail.querySelector('.label').textContent = `${item.weight}% of final grade`; detail.querySelector('h3').textContent = item.name; detail.querySelector('p').textContent = item.description; document.querySelectorAll('.grade-segment').forEach((el, i) => el.classList.toggle('is-active', i === index)); document.querySelectorAll('.grade-key').forEach((el, i) => el.classList.toggle('is-active', i === index)); };
+    gradeData.forEach((item, index) => {
+      const segment = document.createElementNS('http://www.w3.org/2000/svg','circle'); segment.classList.add('grade-segment'); segment.setAttribute('cx','100'); segment.setAttribute('cy','100'); segment.setAttribute('r','68'); segment.setAttribute('pathLength','100'); segment.setAttribute('stroke',item.color); segment.setAttribute('stroke-dasharray',`${item.weight} ${100-item.weight}`); segment.setAttribute('stroke-dashoffset',`${-offset}`); segment.setAttribute('tabindex','0'); segment.setAttribute('role','button'); segment.setAttribute('aria-label',`${item.name}, ${item.weight}%`); segment.addEventListener('mouseenter',() => activateGrade(index)); segment.addEventListener('focus',() => activateGrade(index)); segment.addEventListener('click',() => activateGrade(index)); segmentRoot.append(segment);
+      const key = document.createElement('button'); key.className = 'grade-key'; key.type = 'button'; key.style.setProperty('--grade-color',item.color); key.innerHTML = `<span class="grade-key-dot"></span><span>${item.name}</span><strong>${item.weight}%</strong>`; key.addEventListener('mouseenter',() => activateGrade(index)); key.addEventListener('focus',() => activateGrade(index)); key.addEventListener('click',() => activateGrade(index)); legendRoot.append(key); offset += item.weight;
+    });
+    activateGrade(0);
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }}), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
